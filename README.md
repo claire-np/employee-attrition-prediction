@@ -3,23 +3,23 @@
 ## 1. Business Problem
 Aventra Auto is an industry leader with a recognized high-performance culture. While this culture drives innovation, it has also led to a significant business challenge: **a voluntary turnover rate** that exceeds industry benchmarks.
 
-High attrition introduces substantial direct and indirect costs, including talent acquisition expenses, onboarding, and new hire ramp-up time. Furthermore, the loss of institutional knowledge and decreased team productivity during transitions represent a multi-million dollar liability. The HR team has a clear mandate: reduce voluntary attrition and enhance employee retention.
+High attrition introduces significant costs, both direct and indirect, including talent acquisition expenses, onboarding, and new hire ramp-up time. Furthermore, the loss of institutional knowledge and decreased team productivity during transitions represents a cost to the company in millions. The HR team has a clear mandate: reduce voluntary attrition and enhance employee retention.
 
 Currently, the company's retention efforts are reactive, typically initiated during exit interviews. To mitigate this, HR must pivot from a reactive posture to a proactive, data-informed talent management strategy. They require a system to identify flight risks, enabling managers and HRBPs to conduct targeted interventions before an employee resigns.
 
 ## 2. Solution Overview
 This project addresses Aventra Auto's challenge by building a predictive model as an early warning system for identifying flight risks.
 
-Using historical employee data—including performance metrics, project workload, and employee tenure—I developed a model that quantifies an employee's risk of voluntary turnover. This model provides the HR team with a powerful tool to identify employees with a high propensity for attrition and deploy targeted retention initiatives.
+Using historical employee data—including performance metrics, project workload, and employee tenure—I developed a model that quantifies an employee's risk of voluntary turnover. This model provides the HR team with a powerful tool to identify employees with a high propensity for attrition and take action to keep them.
 
 The model's feature importance analysis provides clear, actionable insights into the key drivers of attrition at the company.
 
 ## 3. Key Findings
-The analysis reveals that voluntary turnover at Aventra Auto is not a single, uniform problem; it is driven by two distinct employee personas:
+The analysis reveals that voluntary turnover at Aventra Auto is not a single, uniform problem; it is two main types of employees leaving:
 
-1. A significant cohort of departing employees consists of individuals with the highest performance ratings and heaviest project workloads. These are the company's high-potential (HiPo) employees. They are not leaving due to poor performance; they are exiting due to burnout. The loss of this group represents a critical erosion of the company's talent pipeline.
+1. A significant cohort of departing employees consists of individuals with the highest performance ratings and heaviest project workloads. These are the company's high-potential employees (HiPo, i.e., top performers). They are not leaving due to poor performance; they are exiting due to burnout. The loss of this group represents a critical erosion of the company's talent pipeline.
 
-2. The second cohort consists of employees with lower performance ratings and significantly lighter workloads. Their departure is symptomatic of disengagement, underutilization, or poor job fit. This trend highlights potential gaps in the company's performance management and career pathing frameworks.
+2. The second cohort consists of employees with lower performance ratings and significantly lighter workloads. Their departure is symptomatic of disengagement, not enough work, or a mismatch with their role. This trend highlights potential gaps in the company's performance management and career pathing frameworks.
 
 Understanding these two different attrition drivers is the most critical insight from this project. A one-size-fits-all retention strategy will be ineffective. Retaining a high-performer requires interventions focused on workload management and career advancement, while addressing a disengaged employee requires performance coaching and a potential reassessment of role alignment.
 
@@ -28,8 +28,8 @@ Based on the model's findings, I propose a three-part action plan for HR team:
 
 | **Recommendation** | **Business impact & HR intervention** |
 |---|---|
-| Deploy a predictive "flight risk" dashboard | Enables proactive, targeted interventions. By allowing managers and HRBPs to focus on the 10-15% of employees identified as high flight risks, this tool could drive a 20-25% reduction in voluntary turnover within the first year. |
-| Implement workload planning for high-performers | Directly addresses the high-performer burnout persona. Implementing project caps and systematic workload reviews will protect the company's most valuable talent assets, improving long-term innovation and productivity. |
+| Use a dashboard to predict which employees might leave | Enables proactive, targeted interventions. By allowing managers and HRBPs to focus on the 10-15% most likely to leave, this tool could drive a 20-25% reduction in voluntary turnover within the first year. |
+| Implement workload planning for high-performers | Directly addresses the high-performer burnout persona. Implementing limit workload and regularly check projects will protect the company's most valuable talent assets, improving long-term innovation and productivity. |
 | Launch a mid-tenure career program | Mitigates the predictable spike in attrition among mid-tenure employees. This program will increase employee engagement and organizational commitment, strengthening the internal leadership pipeline and reducing reliance on costly external hiring. |
 
 ## 5. Model Performance
