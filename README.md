@@ -1,55 +1,118 @@
-# Employee Attrition Prediction for Aventra Auto
+# Employee Attrition Prediction for Aventra Auto  
 
-## 1. Business Problem
-Aventra Auto is an industry leader with a recognized high-performance culture. While this culture drives innovation, it has also led to a significant business challenge: **a voluntary turnover rate** that exceeds industry benchmarks.
+## 1. Business Problem  
+Aventra Auto operates in a fast-paced, high-performance environment. While this culture supports innovation, it has also led to a **voluntary attrition rate above industry norms**.
 
-High attrition introduces significant costs, both direct and indirect, including talent acquisition expenses, onboarding, and the time required for new hires to ramp up. Furthermore, the loss of institutional knowledge and decreased team productivity during transitions represents a cost to the company in millions. The HR team has a clear mandate: reduce voluntary attrition and enhance employee retention.
+Turnover is costly—recruitment, onboarding, lost productivity, and loss of institutional knowledge collectively represent a multimillion-dollar risk. More importantly, current retention measures are **reactive**, happening after employees decide to leave.
 
-Currently, the company's retention efforts are reactive, typically initiated during exit interviews. To mitigate this, HR must pivot from a reactive posture to a proactive, data-informed talent management strategy. They require a system to identify flight risks, enabling managers and HRBPs to conduct targeted interventions before an employee resigns.
+The HR team needs a way to **identify flight risks early**, enabling targeted, proactive retention efforts.
 
-## 2. Solution Overview
-This project addresses Aventra Auto's challenge by building a predictive model as an early warning system for identifying flight risks.
+---
 
-Using historical employee data—including performance metrics, project workload, and employee tenure—I developed a model that quantifies an employee's risk of voluntary turnover. This model provides the HR team with a powerful tool to identify employees with a high propensity for attrition and take action to keep them.
+## 2. Solution Overview  
+This project builds a predictive model that estimates an employee’s likelihood of voluntary attrition.
 
-The model's feature importance analysis provides clear, actionable insights into the key drivers of attrition at the company.
+Using historical HR records (performance, workload, tenure, promotion history), the model provides a **risk score** for each employee. The goal is to support HRBPs and managers by:
 
-## 3. Key Findings
-The analysis reveals that voluntary turnover at Aventra Auto is not a single, uniform problem; it is two main types of employees leaving:
+- Highlighting employees at high risk of leaving  
+- Allowing timely check-ins and workload adjustments  
+- Shifting retention strategy from reactive to proactive  
 
-1. A significant cohort of departing employees consists of individuals with the highest performance ratings and the heaviest project workloads. These are the company's high-potential employees (HiPo, i.e., top performers). They are not leaving due to poor performance; they are exiting due to burnout. The loss of this group represents a critical erosion of the company's talent pipeline.
+The model is paired with SHAP-based interpretability to show **why** an employee is at risk, ensuring HR actions are targeted and credible.
 
-2. The second cohort consists of employees with lower performance ratings and significantly lighter workloads. Their departure is symptomatic of disengagement, not enough work, or a mismatch with their role. This trend highlights potential gaps in the company's performance management and career pathing frameworks.
+---
 
-Understanding these two different attrition drivers is the most critical insight from this project. A one-size-fits-all retention strategy will be ineffective. Retaining a high-performer requires interventions focused on workload management and career advancement, while addressing a disengaged employee requires performance coaching and a potential reassessment of role alignment.
+## 3. Key Insights  
+Attrition at Aventra Auto is driven by **two distinct segments**, each requiring different retention strategies:
 
-## 4. Recommendations
-Based on the model's findings, I propose a three-part action plan for the HR team:
+### **1. High performers with heavy workloads**  
+These employees deliver strong results and handle disproportionately high project loads.  
+Their exits stem from **burnout**, not poor performance.  
+Losing this group weakens innovation, delivery capacity, and succession pipelines.
 
-| **Recommendation** | **Business impact & HR intervention** |
+### **2. Under-engaged employees with low workload and low performance**  
+This group shows lower evaluations and minimal project involvement.  
+Their departures signal **disengagement or poor role fit**.  
+It highlights opportunities to improve performance management and career development.
+
+➡️ **Insight:** Attrition is *not uniform*. A single retention strategy will not work across both groups.
+
+Below are selected visualizations that illustrate the two dominant attrition personas identified in the analysis.
+
+### 📊 Key Attrition Patterns
+
+<table>
+<tr>
+
+<td align="center" width="50%">
+
+### <sub><b>Burnout Pattern: High Performers Working Extreme Hours</b></sub>
+
+<img width="100%" alt="High Performers Working Extreme Hours" src="https://github.com/user-attachments/assets/7fc0f4aa-6f0d-484c-9e0c-85fef304df57" />
+
+</td>
+
+<td align="center" width="50%">
+
+### <sub><b>Disengagement Pattern: Low Satisfaction & Low Workload</b></sub>
+
+<img width="100%" alt="Low Satisfaction & Low Workload" src="https://github.com/user-attachments/assets/6af0d3fc-5310-481d-9b9b-fb8f156ba03d" />
+
+</td>
+
+</tr>
+</table>
+
+Together, these two patterns highlight that attrition at Aventra Auto stems from opposite employee experiences—burnout among high performers carrying excessive workloads, and disengagement among low-satisfaction employees with minimal responsibilities. Addressing both ends of this spectrum is essential for building an effective, targeted retention strategy.
+
+---
+
+## 4. Recommendations  
+
+| Recommendation | Business Impact |
 |---|---|
-| Use a dashboard to predict which employees might leave | Enables proactive, targeted interventions. By allowing managers and HRBPs to focus on the 10-15% most likely to leave, this tool could drive a 20-25% reduction in voluntary turnover within the first year. |
-| Implement workload planning for high-performers | Directly addresses the high-performer burnout persona. Implementing limit workload and regularly check projects will protect the company's most valuable talent assets, improving long-term innovation and productivity. |
-| Launch a mid-tenure career program | Mitigates the predictable spike in attrition among mid-tenure employees. This program will increase employee engagement and organizational commitment, strengthening the internal leadership pipeline and reducing reliance on costly external hiring. |
+| **Deploy an attrition-risk dashboard** | Allows HR to monitor the top 10–15% highest-risk employees and intervene early. Expected to reduce voluntary turnover by ~20–25% within a year. |
+| **Rebalance workload for high performers** | Reduces burnout and protects critical talent. Preserves innovation capacity and prevents costly replacements. |
+| **Launch mid-tenure career pathing initiatives** | Addresses the common “mid-tenure dip” in engagement. Strengthens internal mobility and reduces reliance on external hiring. |
+
+---
 
 ## 5. Model Performance
-The final model is highly effective for its strategic objective. Its KPIs are:
 
-- Overall Accuracy: 96%
+The final Random Forest model performs strongly for HR decision support:
 
-- Recall (for Attrition Class): 90%
+- **Accuracy:** 96%  
+- **Recall (Attrition class):** 90%  
 
-The high recall score is the most important KPI for this business problem. It confirms the model successfully identifies 9 out of every 10 employees who are genuine flight risks, allowing for effective and timely intervention.
+High recall is critical in this business context because the priority is to avoid missing employees who are true flight risks.  
+A 90% recall means the model correctly identifies **9 out of 10 employees likely to leave**, enabling timely and proactive HR intervention.
 
-## 6. Source Acknowledgment
 
+### **📊 Feature Importance (Random Forest)**
+
+<p align="center">
+  <img width="720" alt="Feature Importance" src="https://github.com/user-attachments/assets/176214ad-85bc-4179-a65b-b591541b6b13" />
+</p>
+
+This visualization highlights the strongest drivers of voluntary attrition captured by the Random Forest model.
+
+Performance evaluation scores, Project load, and Tenure are the most influential predictors of whether an employee is likely to leave.  
+These findings reinforce the two dominant attrition personas observed in the EDA:  
+(1) high-performing employees experiencing workload pressure, and  
+(2) low-engagement employees with reduced satisfaction and lighter workloads.
+
+
+---
+
+## 6. Source Acknowledgment  
 This repository originates from the [Google Advanced Data Analytics Capstone (Coursera)](https://www.coursera.org/professional-certificates/google-advanced-data-analytics), with datasets and base structure used under Coursera’s Educational Use Policy.
 
 I assumed full responsibility for **redefining the analytical framework**, ensuring the project meets professional data science standards rather than academic prototypes.  Major contributions include:
-- Architecting a refined feature engineering pipeline to eliminate data leakage and improve model interpretability.  
-- Designing and validating a new binary feature, `Overworked`, as a proxy for labor intensity and burnout risk.  
-- Developing, tuning, and evaluating a high-performing Random Forest Classifier (96.2% accuracy, 96.5% AUC).  
-- Translating model insights into strategic workforce recommendations on workload management and tenure-based retention.
+
+- A refined feature engineering pipeline with improved interpretability  
+- A new engineered feature (`Overworked`) capturing workload stress  
+- A validated Random Forest model achieving >96% accuracy  
+- Translation of model insights into actionable HR retention strategies  
 
 > *This repository represents an independently executed and technically upgraded version of the original Coursera project, maintained solely for educational and portfolio demonstration purposes.*
 
