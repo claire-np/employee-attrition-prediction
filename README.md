@@ -1,5 +1,22 @@
 # Employee Attrition Prediction for Aventra Auto  
 
+<p align="left">
+
+  <!-- Last Commit -->
+  <img src="https://img.shields.io/github/last-commit/claire-np/employee-attrition-prediction?color=brightgreen&label=last%20commit" />
+
+  <!-- Python version -->
+  <img src="https://img.shields.io/badge/Python-3.10-blue" />
+
+  <!-- Jupyter Notebook -->
+  <img src="https://img.shields.io/badge/Notebook-Jupyter-orange" />
+
+  <!-- Project Status -->
+  <img src="https://img.shields.io/badge/Status-Completed-success" />
+
+</p>
+
+
 ## 1. Business Problem  
 Aventra Auto operates in a fast-paced, high-performance environment. While this culture supports innovation, it has also led to a **voluntary attrition rate above industry norms**.
 
