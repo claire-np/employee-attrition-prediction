@@ -1,37 +1,27 @@
 import shap
-import numpy as np
-import pandas as pd
+import matplotlib.pyplot as plt
 
-def explain_model(model, X_sample):
-    """
-    Compute SHAP summary plot for global explainability.
-    """
-    explainer = shap.TreeExplainer(model)
-    shap_values = explainer.shap_values(X_sample)
-
-    if isinstance(shap_values, list):
-        shap.summary_plot(shap_values[1], X_sample)
-    else:
-        shap.summary_plot(shap_values, X_sample)
+def plot_shap_summary(explainer, X, class_index=1, max_display=10, sample_size=1000):
+    X_safe = X.sample(n=sample_size, random_state=42) if len(X) > sample_size else X
+    
+    shap_values = explainer.shap_values(X_safe)
+    
+    vals = shap_values[class_index] if isinstance(shap_values, list) else shap_values[:, :, class_index]
+    
+    plt.figure(figsize=(10, 6))
+    shap.summary_plot(vals, X_safe, plot_type="dot", max_display=max_display)
 
 
-def explain_single_observation(model, X_single):
-    """
-    Explain SHAP for a single observation.
-    """
-    explainer = shap.TreeExplainer(model)
-    shap_values = explainer.shap_values(X_single)
-
-    if isinstance(shap_values, list):
-        shap_value_single = shap_values[1][0]
-        expected_value = explainer.expected_value[1]
-    else:
-        shap_value_single = shap_values[0]
-        expected_value = explainer.expected_value
-
-    shap.force_plot(
-        expected_value,
-        shap_value_single,
-        X_single,
-        matplotlib=True
-    )
+def plot_shap_waterfall(explainer, X_sample, class_index=1):
+    if len(X_sample) != 1:
+        raise ValueError("Error: X_sample must contain exactly one row.")
+        
+    shap_exp = explainer(X_sample)
+    
+    plt.figure(figsize=(8, 5))
+    
+    try:
+        shap.plots.waterfall(shap_exp[0, :, class_index])
+    except Exception:
+        # Fallback
+        shap.plots.waterfall(shap_exp[0])
